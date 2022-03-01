@@ -39,7 +39,7 @@ client.on('ready', () => {
 
 client.on('guildMemberAdd', async(member) => {
 
-   const welcomeChannel = member.guild.channels.cache.find(c => c.id === '948283596987334777');
+   const welcomeChannel = member.guild.channels.cache.find(c => c.id === '919386309309657168');
    const VeriRole = member.guild.roles.cache.find(r => r.id === '919411731300745247'); //Verified
    const addRole = member.guild.roles.cache.find(r => r.id === '948282862531145729'); //Not Verified
 

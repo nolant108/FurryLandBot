@@ -2,14 +2,7 @@ require('discord-reply');
 const Discord = require('discord.js');
 //const { MessageEmbed, member, message, embed, guild, Guild, channel, interaction } = require('discord.js');
 const fs = require('fs');
-<<<<<<< Updated upstream
-const db = require('quick.db')
-const { fileURLToPath } = require('url');
 const config = require("./config.json");
-const { MessageCollector } = require("discord.js-collector");
-=======
-const config = require("./config.json");
->>>>>>> Stashed changes
 
 
 const client = new Discord.Client({
@@ -41,11 +34,6 @@ client.on('ready', () => {
 
 client.on('guildMemberAdd', async(member) => {
 
-<<<<<<< Updated upstream
-   const welcomeChannel = member.guild.channels.cache.find(c => c.id === '919386309309657168');
-   const VeriRole = member.guild.roles.cache.find(r => r.id === '919411731300745247'); //Verified
-   const addRole = member.guild.roles.cache.find(r => r.id === '948282862531145729'); //Not Verified
-=======
    const welcomeChannel = member.guild.channels.cache.find(c => c.id === '948283596987334777');
    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
    const alphabet2 = "abcdefghijklmnopqrstuvwxyz"
@@ -54,7 +42,6 @@ client.on('guildMemberAdd', async(member) => {
    const collector = welcomeChannel.createMessageCollector({time: 300000}); //300000
 
 
->>>>>>> Stashed changes
 
    
    member.send(`Welcome to FurryLand!, ${member}!  
@@ -85,12 +72,6 @@ client.on('guildMemberAdd', async(member) => {
        
        let r4 = Math.floor((Math.random() * 80) + 1);
        
-<<<<<<< Updated upstream
-              
-
-
-=======
->>>>>>> Stashed changes
        member.roles.add(addRole);
 
        const filter = m => m.content.includes(result);

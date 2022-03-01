@@ -1,13 +1,15 @@
 require('discord-reply');
-const { verify } = require('crypto');
-const { WelcomeChannel } = require('discord.js');
 const Discord = require('discord.js');
-const { MessageEmbed, member, message, embed, guild, Guild, channel, interaction } = require('discord.js');
+//const { MessageEmbed, member, message, embed, guild, Guild, channel, interaction } = require('discord.js');
 const fs = require('fs');
+<<<<<<< Updated upstream
 const db = require('quick.db')
 const { fileURLToPath } = require('url');
 const config = require("./config.json");
 const { MessageCollector } = require("discord.js-collector");
+=======
+const config = require("./config.json");
+>>>>>>> Stashed changes
 
 
 const client = new Discord.Client({
@@ -39,10 +41,22 @@ client.on('ready', () => {
 
 client.on('guildMemberAdd', async(member) => {
 
+<<<<<<< Updated upstream
    const welcomeChannel = member.guild.channels.cache.find(c => c.id === '919386309309657168');
    const VeriRole = member.guild.roles.cache.find(r => r.id === '919411731300745247'); //Verified
    const addRole = member.guild.roles.cache.find(r => r.id === '948282862531145729'); //Not Verified
+=======
+   const welcomeChannel = member.guild.channels.cache.find(c => c.id === '948283596987334777');
+   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+   const alphabet2 = "abcdefghijklmnopqrstuvwxyz"
+   const VeriRole = member.guild.roles.cache.find(r => r.id === '948257438522560573'); //Verified
+   const addRole = member.guild.roles.cache.find(r => r.id === '948282862531145729'); //Not Verified
+   const collector = welcomeChannel.createMessageCollector({time: 300000}); //300000
 
+
+>>>>>>> Stashed changes
+
+   
    member.send(`Welcome to FurryLand!, ${member}!  
    \n Im Iris the OC of the server! If you need any help please use !help
    \n Here are the rules: 
@@ -62,8 +76,6 @@ client.on('guildMemberAdd', async(member) => {
 
         let r2 = Math.floor((Math.random() * 98) + 1);
        
-       const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-       const alphabet2 = "abcdefghijklmnopqrstuvwxyz"
        
        let r1 =  alphabet[Math.floor(Math.random() * alphabet.length)]
        
@@ -73,14 +85,16 @@ client.on('guildMemberAdd', async(member) => {
        
        let r4 = Math.floor((Math.random() * 80) + 1);
        
+<<<<<<< Updated upstream
               
 
 
+=======
+>>>>>>> Stashed changes
        member.roles.add(addRole);
 
        const filter = m => m.content.includes(result);
 
-       const collector = welcomeChannel.createMessageCollector({time: 300000}); //300000
        welcomeChannel.send(`${member}, Type the same code below within 5 minutes in this channel to verify!\n\n\`\`\`${r1}${r2}${r3}${r4}${r5}\`\`\``);
 
        collector.on('collect', m => {
@@ -127,9 +141,6 @@ client.on('messageCreate', message =>{
 
     if(command === 'help'){
         client.commands.get('help').execute(message, args);
-    } 
-    if(command === 'captcha'){
-        client.commands.get('captcha').execute(message, args);
     } 
 });
 

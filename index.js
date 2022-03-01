@@ -6,8 +6,9 @@ const { MessageEmbed, member, message, embed, guild, Guild, channel, interaction
 const fs = require('fs');
 const db = require('quick.db')
 const { fileURLToPath } = require('url');
-const config = require("./config.json");
 const { MessageCollector } = require("discord.js-collector");
+
+const token = `OTQ4MjQ5MjU0MzU3NTI4NTg2.Yh5D7w.DOnEhmw0puCjwoSQ52cQwGX2R-E`;
 
 
 const client = new Discord.Client({
@@ -39,9 +40,7 @@ client.on('ready', () => {
 
 client.on('guildMemberAdd', async(member) => {
 
-   const welcomeChannel = member.guild.channels.cache.find(c => c.id === '919386309309657168');
-   const VeriRole = member.guild.roles.cache.find(r => r.id === '919411731300745247'); //Verified
-   const addRole = member.guild.roles.cache.find(r => r.id === '948282862531145729'); //Not Verified
+   const welcomeChannel = member.guild.channels.cache.find(c => c.id === '919720882329501707');
 
    member.send(`Welcome to FurryLand!, ${member}!  
    \n Im Iris the OC of the server! If you need any help please use !help
@@ -75,7 +74,8 @@ client.on('guildMemberAdd', async(member) => {
        
               
 
-
+       const VeriRole = member.guild.roles.cache.find(r => r.id === '919411731300745247'); //Verified
+       const addRole = member.guild.roles.cache.find(r => r.id === '948282862531145729'); //Not Verified
        member.roles.add(addRole);
 
        const filter = m => m.content.includes(result);
@@ -133,4 +133,4 @@ client.on('messageCreate', message =>{
     } 
 });
 
-client.login(config.token);
+client.login(token);

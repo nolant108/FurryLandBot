@@ -44,20 +44,21 @@ client.on('messageCreate', message =>{
     const args = message.content.slice(config.prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    /*
+ 
 
     if(command === 'dog'){
         client.commands.get('dog').execute(message, args);
     } 
 
+ 
     if(command === 'cat'){
         client.commands.get('cat').execute(message, args);
     } 
-
+  
     if(command === 'help'){
         client.commands.get('help').execute(message, args);
     } 
-    */
+    
 });
 
 client.on('guildMemberAdd', async(member) => {

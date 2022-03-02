@@ -28,6 +28,68 @@ client.on('ready', () => {
     });
 })
 
+client.on('guildMemberAdd', async(member) => {
+
+    const welcomeChannel = member.guild.channels.cache.find(c => c.id === '948283596987334777');
+    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    const alphabet2 = "abcdefghijklmnopqrstuvwxyz"
+    const VeriRole = member.guild.roles.cache.find(r => r.id === '948257438522560573'); //Verified
+    const addRole = member.guild.roles.cache.find(r => r.id === '948282862531145729'); //Not Verified
+    const collector = welcomeChannel.createMessageCollector({time: 300000}); //300000
+ 
+ 
+ 
+    
+    member.send(`Welcome to FurryLand!, ${member}!  
+    \n Im Iris the OC of the server! If you need any help please use !help
+    \n Here are the rules: 
+    \n • No spamming in chats - This includes but is not limited to, loud/obnoxious noises in voice, @mention spam, character spam, image spam, and message • Do not make fun of, or bully guests/embers of the server. - Keeping a friendly, fun environment is enjoyable for all guests! • No advertising other servers or organizations. • Sharing of personal information (like passwords) or doxing is prohibited. 
+    \n • Don't post NSFW/offensive/harmful content. • Use the appropriate channels and abide by their descriptions. • Please avoid using offensive or vulgar language • Do not ping staff members or executives constantly or for no reason
+    \n • Respect all staff member decisions, although if you feel like a staff member is abusing their power - contact a Admin. • If a post or rule is in question, contact a Admin/Manager and they will make the final judgement. • Be respectful to one another and do not cause drama. • Breaking these rules could result in a kick, ban, or mute. Follow these rules and have fun!! 
+    \n\n To get verified, head to <#948283596987334777>`);
+ 
+ 
+    welcomeChannel.send(`Welcome to FurryLand!, ${member}! 
+     \n Im Iris the OC of the server! If you need any help please use !help
+     \n Here are the rules: 
+     \n • No spamming in chats - This includes but is not limited to, loud/obnoxious noises in voice, @mention spam, character spam, image spam, and message • Do not make fun of, or bully guests/embers of the server. - Keeping a friendly, fun environment is enjoyable for all guests! • No advertising other servers or organizations. • Sharing of personal information (like passwords) or doxing is prohibited. 
+     \n • Don't post NSFW/offensive/harmful content. • Use the appropriate channels and abide by their descriptions. • Please avoid using offensive or vulgar language • Do not ping staff members or executives constantly or for no reason
+     \n • Respect all staff member decisions, although if you feel like a staff member is abusing their power - contact a Admin. • If a post or rule is in question, contact a Admin/Manager and they will make the final judgement. • Be respectful to one another and do not cause drama. • Breaking these rules could result in a kick, ban, or mute. Follow these rules and have fun!! 
+     \n\n`);
+ 
+         let r2 = Math.floor((Math.random() * 98) + 1);
+        
+        
+        let r1 =  alphabet[Math.floor(Math.random() * alphabet.length)]
+        
+        let r5 =  alphabet[Math.floor(Math.random() * alphabet.length)]
+        
+        let r3 = alphabet2[Math.floor(Math.random() * alphabet2.length)]
+        
+        let r4 = Math.floor((Math.random() * 80) + 1);
+        
+        member.roles.add(addRole);
+ 
+        const filter = m => m.content.includes(result);
+ 
+        welcomeChannel.send(`${member}, Type the same code below within 5 minutes in this channel to verify!\n\n\`\`\`${r1}${r2}${r3}${r4}${r5}\`\`\``);
+ 
+        collector.on('collect', m => {
+         let result = (`${r1}${r2}${r3}${r4}${r5}`)
+ 
+         if(m.content === result) { 
+             //console.log(m.content)
+             member.send(`${member}, Thank You! \n\n Your are now verified! Have Fun!`)
+                     member.roles.remove(addRole);
+                     member.roles.add(VeriRole);
+         } 
+ 
+         
+         });
+ 
+ 
+ 
+ });
 
 
 

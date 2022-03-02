@@ -1,7 +1,5 @@
 const { default: axios} = require('axios');
 const { Discord, message, member } = require('discord.js');
-const JokeAPI = require('sv443-joke-api');
-var fs = require('fs');
 
 module.exports = {
     name: 'cat',

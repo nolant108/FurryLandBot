@@ -58,6 +58,9 @@ client.on('messageCreate', message =>{
     if(command === 'help'){
         client.commands.get('help').execute(message, args);
     } 
+    if(command === 'ping'){
+        client.commands.get('ping').execute(message, args);
+    } 
     
 });
 

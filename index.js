@@ -28,6 +28,37 @@ client.on('ready', () => {
     });
 })
 
+client.commands = new Discord.Collection();
+ 
+const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
+for(const file of commandFiles){
+    const command = require(`./commands/${file}`);
+ 
+    client.commands.set(command.name, command);
+}
+
+client.on('messageCreate', message =>{
+    if(!message.content.startsWith(config.prefix) || message.author.bot) return;
+ 
+    const args = message.content.slice(config.prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+
+    /*
+
+    if(command === 'dog'){
+        client.commands.get('dog').execute(message, args);
+    } 
+
+    if(command === 'cat'){
+        client.commands.get('cat').execute(message, args);
+    } 
+
+    if(command === 'help'){
+        client.commands.get('help').execute(message, args);
+    } 
+    */
+});
+
 client.on('guildMemberAdd', async(member) => {
 
     const welcomeChannel = member.guild.channels.cache.find(c => c.id === '948283596987334777');
